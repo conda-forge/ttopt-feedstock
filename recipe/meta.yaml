@@ -1,5 +1,5 @@
 {% set name = "ttopt" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ttopt-{{ version }}.tar.gz
-  sha256: e66362171652d9e253be8d18fd2c8eb369f7ad335bdcf385b77594fc0b9f114f
+  sha256: 77d7cd58e41e4f70f2451f013c96c7992db0cd034b99c5288ab5014dca502b83
 
 build:
   noarch: python
