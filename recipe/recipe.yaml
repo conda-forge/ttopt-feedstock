@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: ttopt
+  version: "0.6.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ttopt-${{ version }}.tar.gz
+  sha256: 77d7cd58e41e4f70f2451f013c96c7992db0cd034b99c5288ab5014dca502b83
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - numpy
+    - scipy
+    - maxvolpy
+
+tests:
+  - python:
+      imports:
+        - ttopt
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: Multivariate function minimizer based on the tensor train approach.
+  license: MIT
+  license_file: LICENSE.txt
+  homepage: https://github.com/AndreiChertkov/ttopt
+  repository: https://github.com/AndreiChertkov/ttopt
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
